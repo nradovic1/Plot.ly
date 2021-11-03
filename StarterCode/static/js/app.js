@@ -38,13 +38,14 @@ function charts(id) {
             x: sample_value.slice(0,10).reverse(),
             y: otu_id.slice(0,10).map(x => `OTU ${x}`).reverse(),
             type: 'bar',
+            text: sample_label,
             orientation: 'h',
         };
 
         let data_1 = [trace_1]
 
         let layout_1 = {
-            title: 'The Top 10 OTUs in Belly Button'
+            title: `The Top 10 OTUs in Subject ${id} Belly Button`
         }
 
         Plotly.newPlot('bar', data_1, layout_1)
@@ -64,8 +65,9 @@ function charts(id) {
         let data_2 = [trace_2]
 
         let layout_2 = {
-            title: 'All OTUs found',
+            title: `All OTUs found in Subject ${id}`,
             xaxis: { title: "OTU ID" },
+            yaxis: { title: "OTU Value"},
             showlegend: false,
             
         }
